@@ -32,7 +32,7 @@ for epoch in range(num_epochs):
     # Forward pass and loss
     y_predicted = model(X)
     loss = criterion(y_predicted, y)
-    
+
     # Backward pass and update
     loss.backward()
     optimizer.step()

@@ -31,8 +31,7 @@ class Model(nn.Module):
         self.linear = nn.Linear(n_input_features, 1)
 
     def forward(self, x):
-        y_pred = torch.sigmoid(self.linear(x))
-        return y_pred
+        return torch.sigmoid(self.linear(x))
 
 model = Model(n_input_features=6)
 # train your model...

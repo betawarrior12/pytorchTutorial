@@ -77,7 +77,7 @@ n_iterations = math.ceil(total_samples/4)
 print(total_samples, n_iterations)
 for epoch in range(num_epochs):
     for i, (inputs, labels) in enumerate(train_loader):
-        
+
         # here: 178 samples, batch_size = 4, n_iters=178/4=44.5 -> 45 iterations
         # Run your training process
         if (i+1) % 5 == 0:
