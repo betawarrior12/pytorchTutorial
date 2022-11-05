@@ -33,8 +33,7 @@ print('softmax torch:', outputs)
 def cross_entropy(actual, predicted):
     EPS = 1e-15
     predicted = np.clip(predicted, EPS, 1 - EPS)
-    loss = -np.sum(actual * np.log(predicted))
-    return loss # / float(predicted.shape[0])
+    return -np.sum(actual * np.log(predicted))
 
 # y must be one hot encoded
 # if class 0: [1 0 0]
@@ -114,9 +113,7 @@ class NeuralNet1(nn.Module):
         out = self.linear1(x)
         out = self.relu(out)
         out = self.linear2(out)
-        # sigmoid at the end
-        y_pred = torch.sigmoid(out)
-        return y_pred
+        return torch.sigmoid(out)
 
 model = NeuralNet1(input_size=28*28, hidden_size=5)
 criterion = nn.BCELoss()
